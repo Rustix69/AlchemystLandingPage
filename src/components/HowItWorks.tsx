@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 interface StepProps {
   number: string;
   title: string;
@@ -14,9 +16,11 @@ const Step = ({ number, title, description, image }: StepProps) => {
       <div className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-text">{number}</div>
       <h3 className="text-xl font-bold mb-2">{title}</h3>
       <p className="text-muted-foreground mb-6">{description}</p>
-      <img 
+      <Image 
         src={image} 
         alt={title} 
+        width={1350}
+        height={400}
         className="w-full h-48 object-cover rounded-lg"
       />
     </div>

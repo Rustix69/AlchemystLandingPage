@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import Image from "next/image";
 import {
   Popover,
   PopoverContent,
@@ -170,9 +171,11 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <img 
+              <Image 
                 src="/Group 79.png" 
                 alt="Retell AI" 
+                width={100}
+                height={28}
                 className="h-7 w-auto object-contain" 
               />
             </div>

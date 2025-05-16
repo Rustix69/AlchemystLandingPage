@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Mail, MapPin, Twitter, Linkedin, Instagram } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -10,10 +10,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           <div>
             <div className="flex items-center mb-6">
-              <img 
+              <Image 
                 src="/Group 79.png" 
                 alt="Alchemyst AI" 
-                className="h-7 w-auto object-contain" 
+                className="h-7 w-auto object-contain"
+                width={100}
+                height={28}
               />
             </div>
             <p className="text-sm text-gray-400 mb-2">

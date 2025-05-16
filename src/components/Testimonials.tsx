@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -67,9 +68,11 @@ const ReviewCard = ({
   return (
     <div className="bg-[#0f1419] rounded-xl p-6 w-full h-full flex flex-col min-w-[320px] mx-3">
       <div className="flex items-center gap-3 mb-4">
-        <img 
+        <Image 
           src={img} 
           alt={name} 
+          width={40}
+          height={40}
           className="w-10 h-10 rounded-full"
         />
         <div>

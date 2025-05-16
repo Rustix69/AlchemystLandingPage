@@ -1,6 +1,6 @@
 "use client";
 
-import {ArrowRight, ArrowUpRight, Users2Icon } from "lucide-react";
+import {ArrowRight, ArrowUpRight } from "lucide-react";
 
 export default function TechnologyIntegration() {
   return (
@@ -27,7 +27,7 @@ export default function TechnologyIntegration() {
             </p>
             <p className="text-sm text-gray-300 mb-6">
               Our fully managed platform offers a seamless way to enhance your AI
-              applications with Alchemyst AI's memory capabilities. Ideal for teams
+              applications with Alchemyst AI&apos;s memory capabilities. Ideal for teams
               looking for quick deployment and hassle-free maintenance.
             </p>
             <button className="w-1/3 py-2 rounded-md bg-gradient-to-r from-cyan-400 to-blue-400 text-black font-bold flex items-center justify-center">

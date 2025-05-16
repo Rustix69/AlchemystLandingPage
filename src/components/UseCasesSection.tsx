@@ -34,7 +34,7 @@ export default function UseCasesSection() {
             Perfect For Your AI Project
           </h2>
           <p className="text-center text-muted-foreground max-w-3xl leading-relaxed">
-            We're developers building tools for developers. Our mission: to make AI applications that understand
+            We&apos;re developers building tools for developers. Our mission: to make AI applications that understand
             context and remember users, creating more natural and efficient interactions.
           </p>
         </div>

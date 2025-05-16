@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const TrustedBySection = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -46,9 +47,11 @@ const TrustedBySection = () => {
           {/* First set of images */}
           {images.map((src, index) => (
             <div key={`img-${index}`} className="flex-shrink-0">
-              <img 
+              <Image 
                 src={src} 
                 alt={`Trusted partner ${index + 1}`} 
+                width={100}
+                height={64}
                 className="h-16 opacity-70 hover:opacity-100 transition-opacity"
               />
             </div>
@@ -57,9 +60,11 @@ const TrustedBySection = () => {
           {/* Duplicate set for seamless looping */}
           {images.map((src, index) => (
             <div key={`img-dup-${index}`} className="flex-shrink-0">
-              <img 
+              <Image 
                 src={src} 
                 alt={`Trusted partner ${index + 1}`} 
+                width={100}
+                height={64}
                 className="h-16 opacity-70 hover:opacity-100 transition-opacity"
               />
             </div>

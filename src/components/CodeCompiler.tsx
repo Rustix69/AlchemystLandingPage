@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "./ui/button";
 
 type CodeLanguage = "javascript" | "python";
 
@@ -54,7 +53,7 @@ print(response)`
             Get Started Today
           </h2>
           <p className="text-center text-gray-400 max-w-3xl leading-relaxed">
-            Empower Your AI applications with MemoAI's Intelligent Memory Layer in Minutes
+            Empower Your AI applications with MemoAI&apos;s Intelligent Memory Layer in Minutes
           </p>
           <a 
             href="/docs" 
