@@ -9,24 +9,24 @@ export default function HeroSection() {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
-  
+
   // Use refs for constants to avoid them being dependencies in useEffect
   const typingSpeed = useRef(150); // Speed for typing in ms
   const deletingSpeed = useRef(100); // Speed for deleting in ms
   const delayAfterWord = useRef(1000); // Delay after word is fully typed
-  
+
   // Use useMemo to prevent the words array from being recreated on each render
   const words = useMemo(() => ["Agents", "Projects", "Copilot"], []);
 
   useEffect(() => {
     let timer;
     const currentWord = words[wordIndex];
-    
+
     if (isDeleting) {
       // Deleting mode
       timer = setTimeout(() => {
         setDisplayText(currentWord.substring(0, displayText.length - 1));
-        
+
         // If all characters are deleted, switch to typing mode and move to next word
         if (displayText.length <= 1) {
           setIsDeleting(false);
@@ -47,7 +47,7 @@ export default function HeroSection() {
         }, typingSpeed.current);
       }
     }
-    
+
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, wordIndex, words]);
 
@@ -75,10 +75,10 @@ export default function HeroSection() {
         {/* F6S Badge */}
         <div className="inline-flex items-center tracking-tighter gap-2 px-4 py-2 bg-black/70 rounded-full text-white text-base font-medium animate-fade-in">
           <span>✨ #1 in Gen AI category</span>
-          <Image 
-            src="/f6s_0.png" 
-            alt="F6S" 
-            width={30} 
+          <Image
+            src="/f6s_0.png"
+            alt="F6S"
+            width={30}
             height={30}
             className="h-auto"
           />
@@ -100,10 +100,10 @@ export default function HeroSection() {
 
         <div className="flex flex-wrap justify-center gap-4">
           <Button className="bg-white hover:bg-white/90 text-black text-lg py-6 px-8 font-bold">
-            TRY FOR FREE
+            Get Started
           </Button>
           <Button variant="outline" className="border-2 border-white text-white text-lg py-6 px-8 bg-black/30 font-medium">
-            CONTACT SALES
+            Book a Demo
           </Button>
         </div>
 

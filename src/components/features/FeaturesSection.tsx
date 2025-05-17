@@ -2,13 +2,14 @@
 
 import FeatureCard from "./FeatureCard";
 import { featureCardsData } from "./featureData";
+import Image from "next/image";
 
 export default function FeaturesSection() {
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-          Build <span className="bg-gradient-text">Enterprise-Grade</span> Agents At Scale
+          Build <span className="bg-gradient-text">Enterprise-Grade</span> AI Agents At Scale
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -43,22 +44,63 @@ export default function FeaturesSection() {
           >
             <div className="mt-8">
               <div className="flex items-center mb-4">
-                <div className="h-6 w-6 bg-blue-purple-gradient rounded-md flex items-center justify-center mr-2">
-                  <div className="h-3 w-3 bg-white rounded-sm"></div>
+                <Image 
+                  src="/Group 81.png" 
+                  alt="Alchemyst Systems Logo" 
+                  width={30} 
+                  height={30} 
+                  className="mr-2"
+                />
+                <span className="font-bold">Alchemyst Systems</span>
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span>Context Processor</span>
+                    <span className="text-green-500 text-sm">99.993% uptime</span>
+                  </div>
+                  <div className="flex gap-[2px] h-4 w-full">
+                    {Array(90).fill(null).map((_, i) => (
+                      <div 
+                        key={i} 
+                        className={`flex-1 h-full ${
+                          i < 89 ? 'bg-green-500' : 'bg-red-500'
+                        }`}
+                      ></div>
+                    ))}
+                  </div>
                 </div>
-                <span className="font-bold">Retell AI</span>
-              </div>
-              
-              <div className="bg-green-900/20 p-3 rounded-md mb-6 flex items-center border border-green-700/30">
-                <div className="h-4 w-4 bg-green-500 rounded-full mr-2"></div>
-                <span className="text-green-400">All Systems</span>
-              </div>
-              
-              <div className="mb-2">API Uptime</div>
-              <div className="h-2 bg-green-500 rounded-full mb-1"></div>
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span></span>
-                <span>99.99%</span>
+                
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span>AI Backend</span>
+                    <span className="text-green-500 text-sm">100.000% uptime</span>
+                  </div>
+                  <div className="flex gap-[2px] h-4 w-full">
+                    {Array(90).fill(null).map((_, i) => (
+                      <div 
+                        key={i} 
+                        className="flex-1 h-full bg-green-500"
+                      ></div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span>Platform Frontend</span>
+                    <span className="text-green-500 text-sm">100.000% uptime</span>
+                  </div>
+                  <div className="flex gap-[2px] h-4 w-full">
+                    {Array(90).fill(null).map((_, i) => (
+                      <div 
+                        key={i} 
+                        className="flex-1 h-full bg-green-500"
+                      ></div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </FeatureCard>

@@ -7,11 +7,13 @@ const TrustedBySection = () => {
   useEffect(() => {
     const scrollCarousel = () => {
       if (carouselRef.current) {
-        // Increase scroll speed and improve scrolling logic
-        carouselRef.current.scrollLeft += 2;
+        // Increase scroll speed
+        carouselRef.current.scrollLeft += 1;
         
-        // Reset scroll when reaching the end
-        if (carouselRef.current.scrollLeft >= carouselRef.current.scrollWidth / 2) {
+        // Check if we've scrolled past half the total width
+        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+        if (scrollLeft >= scrollWidth / 2) {
+          // Reset scroll to create infinite effect
           carouselRef.current.scrollLeft = 0;
         }
       }
@@ -33,6 +35,9 @@ const TrustedBySection = () => {
     { src: '/trusted/toyota.png', scale: 0.85 },
   ];
 
+  // Duplicate images to create infinite scroll effect
+  const duplicatedImages = [...images, ...images];
+
   return (
     <div className="mt-16 animate-fade-in-up">
       <p className="text-lg text-gray-300 uppercase tracking-wider mb-8 font-medium text-center">Trusted by Developers from</p>
@@ -47,13 +52,13 @@ const TrustedBySection = () => {
             whiteSpace: 'nowrap'
           }}
         >
-          {/* First set of images */}
-          {images.map((image, index) => (
+          {/* Duplicated images for infinite scroll */}
+          {duplicatedImages.map((image, index) => (
             <div key={`img-${index}`} className="flex-shrink-0 flex items-center justify-center w-52 h-28">
               <div className="w-full h-full flex items-center justify-center p-4">
                 <Image 
                   src={image.src} 
-                  alt={`Trusted partner ${index + 1}`} 
+                  alt={`Trusted partner ${(index % images.length) + 1}`} 
                   width={180 * Math.abs(image.scale)}
                   height={90 * (image.scale < 0 ? Math.abs(image.scale) : image.scale)}
                   className="object-cover opacity-70 hover:opacity-100 transition-opacity"
