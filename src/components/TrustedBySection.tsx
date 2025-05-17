@@ -11,7 +11,7 @@ const TrustedBySection = () => {
         carouselRef.current.scrollLeft += 1;
         
         // Check if we've scrolled past half the total width
-        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+        const { scrollLeft, scrollWidth } = carouselRef.current;
         if (scrollLeft >= scrollWidth / 2) {
           // Reset scroll to create infinite effect
           carouselRef.current.scrollLeft = 0;
