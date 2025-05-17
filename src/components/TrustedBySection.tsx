@@ -7,12 +7,12 @@ const TrustedBySection = () => {
   useEffect(() => {
     const scrollCarousel = () => {
       if (carouselRef.current) {
-        if (carouselRef.current.scrollLeft >= carouselRef.current.scrollWidth - carouselRef.current.clientWidth) {
-          // Reset to start when reaching the end
+        // Increase scroll speed and improve scrolling logic
+        carouselRef.current.scrollLeft += 2;
+        
+        // Reset scroll when reaching the end
+        if (carouselRef.current.scrollLeft >= carouselRef.current.scrollWidth / 2) {
           carouselRef.current.scrollLeft = 0;
-        } else {
-          // Scroll by 1px every 20ms (smooth animation)
-          carouselRef.current.scrollLeft += 1;
         }
       }
     };
@@ -23,21 +23,24 @@ const TrustedBySection = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  // Array of image sources (using 12 instances of the same images)
+  // Array of image sources from the trusted folder with scaling
   const images = [
-    '/yc.png', '/100x.png', '/ipv.png', '/wtf.png',
-    '/yc.png', '/100x.png', '/ipv.png', '/wtf.png',
-    '/yc.png', '/100x.png', '/ipv.png', '/wtf.png'
+    { src: '/trusted/AFT.png', scale: -0.5 },
+    { src: '/trusted/chainrisk.png', scale: 1 },
+    { src: '/trusted/hyundai.png', scale: 0.9 },
+    { src: '/trusted/kotak.png', scale: 0.7 },
+    { src: '/trusted/kuberns.png', scale: 0.5 },
+    { src: '/trusted/toyota.png', scale: 0.85 },
   ];
 
   return (
     <div className="mt-16 animate-fade-in-up">
-      <p className="text-lg text-gray-300 uppercase tracking-wider mb-8 font-medium text-center">Trusted by</p>
+      <p className="text-lg text-gray-300 uppercase tracking-wider mb-8 font-medium text-center">Trusted by Developers from</p>
       
       <div className="relative overflow-hidden">
         <div 
           ref={carouselRef}
-          className="flex gap-16 overflow-x-auto scrollbar-hide"
+          className="flex gap-16 md:gap-20 overflow-x-auto scrollbar-hide py-4"
           style={{ 
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
@@ -45,28 +48,17 @@ const TrustedBySection = () => {
           }}
         >
           {/* First set of images */}
-          {images.map((src, index) => (
-            <div key={`img-${index}`} className="flex-shrink-0">
-              <Image 
-                src={src} 
-                alt={`Trusted partner ${index + 1}`} 
-                width={100}
-                height={64}
-                className="h-16 opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          ))}
-          
-          {/* Duplicate set for seamless looping */}
-          {images.map((src, index) => (
-            <div key={`img-dup-${index}`} className="flex-shrink-0">
-              <Image 
-                src={src} 
-                alt={`Trusted partner ${index + 1}`} 
-                width={100}
-                height={64}
-                className="h-16 opacity-70 hover:opacity-100 transition-opacity"
-              />
+          {images.map((image, index) => (
+            <div key={`img-${index}`} className="flex-shrink-0 flex items-center justify-center w-52 h-28">
+              <div className="w-full h-full flex items-center justify-center p-4">
+                <Image 
+                  src={image.src} 
+                  alt={`Trusted partner ${index + 1}`} 
+                  width={180 * Math.abs(image.scale)}
+                  height={90 * (image.scale < 0 ? Math.abs(image.scale) : image.scale)}
+                  className="object-cover opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
           ))}
         </div>

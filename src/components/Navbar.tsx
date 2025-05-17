@@ -220,11 +220,11 @@ const Navbar = () => {
               
             {/* Login/Contact Buttons */}
             <div className="hidden md:flex items-center">
-              <Button variant="ghost" className="text-white/80 hover:text-white mr-2 transition-colors text-sm h-8 px-3">
-                CONTACT SALES
+              <Button variant="outline" className="text-white/80 border-white/50 hover:text-white mr-2 transition-colors text-sm h-8 px-3">
+                Book a Demo
               </Button>
               <Button className="bg-gradient-to-br from-gray-200 to-white text-black hover:opacity-90 rounded-full transition-opacity text-sm h-8 px-4">
-                LOG IN
+                Get Started
               </Button>
             </div>
             
@@ -316,9 +316,9 @@ const Navbar = () => {
           </div>
           
           <div className="pt-2 space-y-3">
-            <Button variant="ghost" className="w-full justify-center">CONTACT SALES</Button>
+            <Button variant="outline" className="w-full border-white/10 justify-center">Book a Demo</Button>
             <Button className="w-full justify-center bg-gradient-to-br from-gray-200 to-white text-black">
-              LOG IN
+              Get Started
             </Button>
           </div>
         </div>

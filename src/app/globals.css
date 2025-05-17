@@ -109,7 +109,7 @@
 
 @layer utilities {
   .bg-gradient-text {
-    @apply bg-gradient-to-br from-sky-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-[#FFA052] via-[#FFA052] to-[#FFA052] bg-clip-text text-transparent;
   }
   
   /* Hide scrollbar for Chrome, Safari and Opera */

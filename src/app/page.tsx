@@ -9,7 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQSection from "@/components/FAQSection";
 import PricingSection from "@/components/PricingSection";
 import CodeCompiler from "@/components/CodeCompiler";
-
+import Ecosystem from "@/components/Ecosystem";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
@@ -29,6 +29,9 @@ export default function Home() {
       
       {/* Code Compiler Section */}
       <CodeCompiler />
+
+      {/* Ecosystem Section */}
+      <Ecosystem />
       
       {/* Technology Integration Section */}
       <TechnologyIntegration />
